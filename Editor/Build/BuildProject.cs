@@ -387,7 +387,13 @@ namespace SuperUnityBuild.BuildTool
                 options = options,
                 scenes = releaseType.sceneList.GetActiveSceneFileList(),
                 target = architecture.target,
+
+                //temporary hack fix: always setting MobileTextureSubtarget.PVRTC.
+#if UNITY_ANDROID
+                subtarget = (int)EditorUserBuildSettings.androidBuildSubtarget
+#else
                 subtarget = (int)architecture.subtarget
+#endif
             });
 
             if (buildReport.summary.result == BuildResult.Failed)
