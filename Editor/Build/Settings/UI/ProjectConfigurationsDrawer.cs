@@ -229,7 +229,7 @@ namespace SuperUnityBuild.BuildTool
 
                 if (treeView.boolValue)
                 {
-                    string[] split = key.Split('/');
+                    string[] split = key.Split('|');
                     text = split[split.Length - 1];
                 }
                 else

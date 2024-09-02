@@ -136,7 +136,7 @@ namespace SuperUnityBuild.BuildTool
             {
                 foreach (Type t in asm.GetTypes())
                 {
-                    if (ti.IsAssignableFrom(t) && ti != t)
+                    if (ti.IsAssignableFrom(t) && ti != t && !t.IsAbstract)
                     {
                         BuildPlatform instance = ScriptableObject.CreateInstance(t) as BuildPlatform;
                         availablePlatformNameList.Add(instance.platformName);

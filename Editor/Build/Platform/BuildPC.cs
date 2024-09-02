@@ -64,7 +64,7 @@ namespace SuperUnityBuild.BuildTool
             }
         }
 
-        public override void ApplyVariant()
+        public override void ApplyVariant(BuildReleaseType releaseType)
         {
             foreach (var variantOption in variants)
             {

@@ -22,6 +22,7 @@ namespace SuperUnityBuild.BuildTool
                 variants = platform.variantKey.Replace(",", ", ");
 
             sb.Replace("$RELEASE_TYPE", releaseType?.typeName.SanitizeFolderName());
+            sb.Replace("$PLATFORM_NAME", platform?.platformName);
             sb.Replace("$PLATFORM", platform?.platformName.SanitizeFolderName());
             sb.Replace("$ARCHITECTURE", architecture?.name.SanitizeFolderName());
             sb.Replace("$VARIANTS", variants.SanitizeFolderName());
