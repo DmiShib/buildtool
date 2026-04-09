@@ -22,7 +22,7 @@ namespace SuperUnityBuild.BuildTool
         {
         }
 
-        public virtual void ApplyVariant()
+        public virtual void ApplyVariant(BuildReleaseType releaseType)
         {
         }
 
@@ -98,7 +98,7 @@ namespace SuperUnityBuild.BuildTool
 
         #endregion
 
-        public void Draw(SerializedObject obj)
+        public virtual void Draw(SerializedObject obj)
         {
             EditorGUILayout.BeginVertical(UnityBuildGUIUtility.dropdownContentStyle);
 

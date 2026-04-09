@@ -121,7 +121,7 @@ namespace SuperUnityBuild.BuildTool
             out BuildScriptingBackend scriptingBackend, out BuildDistribution distribution)
         {
             bool success = false;
-            string[] keys = keychain.Split('/');
+            string[] keys = keychain.Split('|');
             int keyCount = keys.Length;
             int targetKey = 0;
 
@@ -266,7 +266,7 @@ namespace SuperUnityBuild.BuildTool
                 if (!platforms[i].enabled || !platforms[i].atLeastOneArch || !platforms[i].atLeastOneBackend)
                     continue;
 
-                string key = keyChain + "/" + platforms[i].platformName;
+                string key = keyChain + "|" + platforms[i].platformName;
                 Configuration relConfig = new Configuration();
 
                 // Check for duplicate key.
@@ -328,7 +328,7 @@ namespace SuperUnityBuild.BuildTool
                 if (!architectures[i].enabled)
                     continue;
 
-                string key = keyChain + "/" + architectures[i].name;
+                string key = keyChain + "|" + architectures[i].name;
                 if (variantKey.Length > 0)
                     key += " (" + variantKey + ")";
 
@@ -376,7 +376,7 @@ namespace SuperUnityBuild.BuildTool
                 if (!scriptingBackends[i].enabled)
                     continue;
 
-                string key = keyChain + "/" + scriptingBackends[i].name;
+                string key = keyChain + "|" + scriptingBackends[i].name;
 
                 Configuration relConfig = new Configuration();
 
@@ -415,7 +415,7 @@ namespace SuperUnityBuild.BuildTool
                 if (!distributions[i].enabled)
                     continue;
 
-                string key = keyChain + "/" + distributions[i].distributionName;
+                string key = keyChain + "|" + distributions[i].distributionName;
                 Configuration relConfig = new Configuration();
 
                 if (refreshedConfigSet.ContainsKey(key))

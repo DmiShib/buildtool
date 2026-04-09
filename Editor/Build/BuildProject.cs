@@ -241,7 +241,7 @@ namespace SuperUnityBuild.BuildTool
             PlayerSettings.SetApplicationIdentifier(platform.targetGroup, releaseType.bundleIdentifier);
 
             // Apply build variant
-            platform.ApplyVariant();
+            platform.ApplyVariant(releaseType);
 
             // Generate BuildConstants
             BuildConstantsGenerator.Generate(buildTime, constantsFileLocation, BuildSettings.productParameters.buildVersion,
