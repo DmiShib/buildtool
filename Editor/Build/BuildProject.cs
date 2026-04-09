@@ -253,6 +253,9 @@ namespace SuperUnityBuild.BuildTool
 
         private static void PerformBuild(string[] buildConfigs, BuildOptions options = BuildOptions.None)
         {
+            if (!AndroidSigningValidator.ValidateOrShowDialog(buildConfigs))
+                return;
+
             int successCount = 0;
             int failCount = 0;
 
